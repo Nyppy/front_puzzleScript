@@ -37,7 +37,69 @@ export default {
   data () {
     return {
       content: [
-        '<h1>Hello world!</h1><p>This is a rich-text editor built on top of <span contenteditable="false"><a href="https://vuejs.org/" target="_blank">Vue.js</a></span> using the native <span contenteditable="false"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content" target="_blank"><i>contenteditable</i></a></span> browser implementation and some JavaScript trickery to spread content over paper-sized pages.</p><p>Built-in functionality includes:</p><ul><li>Using Vue.js components as interactive page templates (see next page)</li><li>Word-by-word page splitting with forward and backward propagation (<u>still experimental</u>)</li><li>Native Print compatible</li><li>Dynamic document format and margins in millimeters</li><li>Custom page overlays (headers, footers, page numbers)</li><li>Page breaks</li><li>Smart zoom and page display modes</li><li>Computes text style at caret position</li></ul><p>This library may be useful if you design an application that generate documents and you would let the user to modify them slightly before printing / saving, but with limited / interactive possibilities. It does not intend to replace a proper document editor with full functionality.<br>Make sure this project is suitable to your needs before using it.</p><p>This demo adds:</p><ul><li>The top bar (<span contenteditable="false"><a href="https://github.com/motla/vue-file-toolbar-menu" target="_blank">vue-file-toolbar-menu</a></span> component) and the functions associated with it</li><li>Rewritten history stack (undo/redo) compatible with native commands</li><li>Pinch and trackpad zooming</li></ul><p>Check out the <span contenteditable="false"><a href="https://github.com/motla/vue-document-editor/blob/master/src/Demo/Demo.vue" target="_blank">Demo.vue</a></span> file if you need to add these functionalities to your application.</p><p>The link below is an example of non-editable block set with <code>contenteditable="false"</code>:</p><p style="text-align:center" contenteditable="false"><a href="https://github.com/motla/vue-document-editor">View docs on Github</a>, you can\'t edit me.</p><p>But you can still edit this.</p>',
+        `
+<table border="1" cellpadding="5" width="100%">
+  <tr align="center">
+    <td colspan="2" style="padding: 5px;">НАИМЕНОВАНИЕ ПОДРАЗДЕЛЕНИЯ: 1</td>
+  </tr>
+
+  <tr>
+    <td align="center" style="padding: 5px;" colspan="2"><h1>ПРОТОКОЛ</h1></td>
+  </tr>
+
+  <tr>
+    <td align="center" style="padding: 5px;" colspan="2"><h3>НАЗВАНИЕ ПРОТОКОЛА: «TEST»</h3></td>
+  </tr>
+
+  <tr>
+   <td align="left" style="padding: 5px;">ДАТА ПРОТОКОЛА: «11.12.21»</td>
+   <td align="left" style="padding: 5px;">НОМЕР ПРОТОКОЛА «1»</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">ГОРОД: «Kursk»</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">ПРЕДСЕДАТЕЛЬСТВУЮЩИЙ: «Иванов Иван»</td>
+  </tr>
+
+  <tr>
+    <td align="left" colspan="2">Присутствовали: Иванов Иван, Сидоров Алексей</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">ПОВЕСТКА: «Этапы хакатона ЦП 2021»</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">Текст:</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">
+      Там на суку сидит ворона с хуём во рту во лбу Корона в эту темную ночь никто не в силах ей помочь а В эту лунную ночь Никто не сможет нам помочь Баба Яга сварила зелье звери в лесу все ахуели в эту темную ночь никто не в силах им помочь а в эту темную ночь Никто не сможет ей помочь
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">Председатель: «Сидоров Илья»</td>
+  </tr>
+
+  <tr>
+    <td align="left" style="padding: 5px;" colspan="2">Секретарь: «Иванова Анна»</td>
+  </tr>
+
+
+  <style>
+    li {
+      margin-left: 40px;
+    }
+  </style>
+
+</table>
+
+        `
       ],
       zoom: 0.8,
       zoom_min: 0.10,
