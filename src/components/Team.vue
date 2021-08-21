@@ -9,43 +9,48 @@
            <div class="team__list">
                <div class="team__item">
                    <div class="team__img">
-                        <img src="../assets/img/team/item.png" alt="">
+                        <img src="../assets/img/team/Hands/hand1.png" alt="">
                    </div>
                    <div class="team__description">
-                       <p>Dr.Aboobacker</p>
+                       <p>Даниил Паневин</p>
                    </div>
+                   <p>Менеджер</p>
                </div>
                <div class="team__item">
                    <div class="team__img">
-                        <img src="../assets/img/team/item.png" alt="">
+                        <img src="../assets/img/team/Hands/hand2.png" alt="">
                    </div>
                    <div class="team__description">
-                       <p>Dr.Aboobacker</p>
+                       <p>Роман Татаринов</p>
                    </div>
+                   <p>Backend-разработчик</p>
                </div>
                <div class="team__item">
                    <div class="team__img">
-                        <img src="../assets/img/team/item.png" alt="">
+                        <img src="../assets/img/team/Hands/hand3.png" alt="">
                    </div>
                    <div class="team__description">
-                       <p>Dr.Aboobacker</p>
+                       <p>Антон Петровский</p>
                    </div>
+                   <p>Android-разработчик</p>
                </div>
                <div class="team__item">
                    <div class="team__img">
-                        <img src="../assets/img/team/item.png" alt="">
+                        <img src="../assets/img/team/Hands/hand4.png" alt="">
                    </div>
                    <div class="team__description">
-                       <p>Dr.Aboobacker</p>
+                       <p>Андрей Савинов</p>
                    </div>
+                   <p>Frontend-разработчик</p>
                </div>
                <div class="team__item">
                    <div class="team__img">
-                        <img src="../assets/img/team/item.png" alt="">
+                        <img src="../assets/img/team/Hands/hand5.png" alt="">
                    </div>
                    <div class="team__description">
-                       <p>Dr.Aboobacker</p>
+                       <p>Ярослав Бакланов</p>
                    </div>
+                   <p>Frontend-разработчик</p>
                </div>
            </div>
        </div>
@@ -94,14 +99,15 @@
     flex-wrap: wrap;
 }
 .team__item {
-    flex-basis: 205px;
+    flex-basis: 286px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 70px 90px;
+    margin: 0px 50px 90px;
 }
 .team__img {
     margin-bottom: 16px;
+    height: 250px;
 }
 .team__description {
     font-family: Roboto;

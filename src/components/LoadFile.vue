@@ -23,7 +23,7 @@
               color="#000"
             >mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title class="ml-0 pl-0">Авторизация</v-toolbar-title>
+          <v-toolbar-title class="ml-0 pl-0">Загрузка файла</v-toolbar-title>
           <v-spacer></v-spacer>
 
         </v-toolbar>
@@ -42,6 +42,8 @@
             placeholder="Email"
           ></v-file-input>
 
+          <!-- <input type="file" name="" @change="onFilePicked" id=""> -->
+
           <v-btn
             class="text-none mt-4"
             type="submit"
@@ -59,7 +61,7 @@
 </template>
 
 <script>
-import { file } from '@/plugins/helper.js';
+// import { file } from '@/plugins/helper.js';
 
 import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
@@ -67,6 +69,8 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast);
 
 import Cookies from 'vue-cookies';
+
+import axios from 'axios';
 
 export default {
   name: 'Login',
@@ -98,24 +102,54 @@ export default {
       return Cookies.get('User_id');
     }
   },
-  methods: {  
+  methods: {
+    onFilePicked(e) {
+      const files = e.target.files
+      if (files[0] !== undefined) {
+        this.imageName = files[0].name
+        if (this.imageName.lastIndexOf('.') <= 0) {
+          return
+        }
+        const fr = new FileReader()
+        fr.readAsDataURL(files[0])
+        fr.addEventListener('load', () => {
+
+          console.log(files[0])
+
+          const data = {
+            profile: this.user_id,
+            video: files[0]
+          };
+
+          console.log(data)
+          
+
+          axios.post('http://89.223.69.148:8000/api/file_manager/', files[0], {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
+          // file.load(data).then((res) => {
+          //   console.log(res);
+
+          //   window.location.reload();
+          // }).catch((err) => {
+          //   console.log(err);
+
+          //   Vue.$toast.error('Ой ошибочка!', {
+          //     position: 'top-right'
+          //   });
+          // });
+        })
+      }
+    },
     async submit() {
-      const data = {
-        profile: this.user_id,
-        video: this.user_file
-      };
+      let formData = new FormData();
+      formData.append("file", this.user_file);
+
+      console.log(formData);
+
       
-      file.load(data).then((res) => {
-        console.log(res);
-
-        window.location.reload();
-      }).catch((err) => {
-        console.log(err);
-
-        Vue.$toast.error('Ой ошибочка!', {
-          position: 'top-right'
-        });
-      });
     },
   }
 }

@@ -10,7 +10,7 @@
           <div class="functional__list">
               <div class="functional__item">
                   <div class="functional__img">
-                    <img src="../assets/img/functional/item.png" alt="">
+                    <img src="../assets/img/functional/Скрин1.jpg" alt="">
                   </div>
                   <div class="functional__description">
                       <p>Загрузите запись протокола</p>
@@ -18,7 +18,7 @@
               </div>
               <div class="functional__item">
                   <div class="functional__img">
-                    <img src="../assets/img/functional/item.png" alt="">
+                    <img src="../assets/img/functional/Скрин2.jpg" alt="">
                   </div>
                   <div class="functional__description">
                       <p>Настройте маркеры</p>
@@ -26,7 +26,7 @@
               </div>
               <div class="functional__item">
                   <div class="functional__img">
-                    <img src="../assets/img/functional/item.png" alt="">
+                    <img src="../assets/img/functional/Скрин3.jpg" alt="">
                   </div>
                   <div class="functional__description">
                       <p>Определите ключевые маркеры</p>
@@ -34,7 +34,7 @@
               </div>
               <div class="functional__item">
                   <div class="functional__img">
-                    <img src="../assets/img/functional/item.png" alt="">
+                    <img src="../assets/img/functional/Скрин4.png" alt="">
                   </div>
                   <div class="functional__description">
                       <p>Сохраните готовый протокол</p>
@@ -106,8 +106,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 284px;
+    height: 230px;
     background-color: #333333;
+}
+
+.functional__img img {
+    width: 100%;
 }
 
 .functional__description {

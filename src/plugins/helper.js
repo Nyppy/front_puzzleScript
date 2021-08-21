@@ -8,6 +8,14 @@ class Req {
   async post(url, data) {
     return await axios.post(`/${url}/`, data);
   }
+
+  async postVideo(url, data) {
+    return await axios.post(`/${url}/`, data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  }
 }
 
 class User extends Req {
@@ -22,7 +30,7 @@ class User extends Req {
 
 class File extends Req {
   load(data) {
-    return this.post('file_manager', { ...data });
+    return this.postVideo('file_manager', { ...data });
   }
 }
 
