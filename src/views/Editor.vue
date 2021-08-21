@@ -47,10 +47,10 @@ export default {
   },
   data() {
     return {
-      scriptFromAudio: 'ор олт дловодло твлд отдв овтв тлдво старт аааа ааааа аа аааааааа аа ааааааааааааа ааа ааа финиш лдордло лдоыы арывлдд ылоыоард ыволарыв говно ббббббббббббб бб бб бббббббб бб б моча ывалдыж од ыожды лол ожлдывджлыолвыдж длыво',
+      scriptFromAudio: 'ор олт дловодло твлд отдв овтв тлдво старт аааа ааааа аа аааааааа аа ааааааааааааа ааа ааа финиш лдордло лдоыы арывлдд ылоыоард ыволарыв начало ббббббббббббб бб бб бббббббб бб б конец ывалдыж од ыожды лол ожлдывджлыолвыдж длыво',
       regexpessionsWords: [
         ['старт', 'финиш'],
-        ['говно', 'моча']
+        ['начало', 'конец']
       ],
       matchedSubStr: [],
       content: [
@@ -90,7 +90,7 @@ export default {
             </tr>
 
             <tr>
-              <td align="left" style="padding: 5px;" colspan="2">Текст:</td>
+              <td align="left" style="padding: 5px;" colspan="2">Текст: TEXT</td>
             </tr>
 
             <tr>
@@ -112,6 +112,13 @@ export default {
             <tr>
               <td align="left" style="padding: 5px;" colspan="2">Вхождения: WORDSENTERY </td>
             </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Ключевые слова: WORDS1 </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Вхождения: WORDSENTERY1 </td>
+            </tr>
+            
 
             <style>
               li {
@@ -204,7 +211,7 @@ export default {
   mounted () {
     this.mounted = true;
     this.loadData();
-    this.content[0] = this.content[0] + this.scriptFromAudio
+    // this.content[0] = this.content[0] + this.scriptFromAudio
     this.findEnteres();
     this.rebuildContent();
   },
@@ -365,6 +372,9 @@ export default {
     rebuildContent(){
       this.content[0] = this.content[0].replace("WORDS", `${this.matchedSubStr[0].words[0]}, ${this.matchedSubStr[0].words[1]}`)
       this.content[0] = this.content[0].replace("WORDSENTERY", `${this.matchedSubStr[0].text.join()}`)
+      this.content[0] = this.content[0].replace("WORDS1", `${this.matchedSubStr[1].words[0]}, ${this.matchedSubStr[1].words[1]}`)
+      this.content[0] = this.content[0].replace("WORDSENTERY1", `${this.matchedSubStr[1].text.join()}`)
+      this.content[0] = this.content[0].replace("TEXT", `${this.scriptFromAudio}`)
     },
     findEnteres(){
       for(let i = 0; i < this.regexpessionsWords.length; i++){
