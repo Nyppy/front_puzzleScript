@@ -1,8 +1,8 @@
 <template>
   <div class="sidebar">
     <div ref="sidebar" class="sidebar__content">
-      <div class="sidebar__addbutton">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="sidebar__addbutton" @click="toggleModalRegistery">
+        <svg width="24" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="14.2916" width="2.91666" height="31.4999" rx="1.45833" fill="black"/>
           <rect x="31.4999" y="14.2917" width="2.91666" height="31.4999" rx="1.45833" transform="rotate(90 31.4999 14.2917)" fill="black"/>
         </svg>
@@ -35,16 +35,25 @@
         </div>
       </div>
     </div>
+
+    <modalLoadFile
+      v-model="flag_modal_load_file"
+    />
   </div>
 </template>
 
 <script>
+import modalLoadFile from '@/components/LoadFile.vue';
+
 export default {
   name: 'Sidebar',
   data() {
     return {
-      
+      flag_modal_load_file: false,
     }
+  },
+  components: {
+    modalLoadFile,
   },
   methods: {
     checkScroll(e){
@@ -55,14 +64,17 @@ export default {
       } else {
         this.$refs.sidebar.style.position = 'static'
       }
-    }
+    },
+    toggleModalRegistery() {
+      this.flag_modal_load_file = !this.flag_modal_load_file;
+    },
   },
   created () {
     window.addEventListener('scroll', this.checkScroll);
   },
   destroyed () {
     window.removeEventListener('scroll', this.checkScroll);
-  }
+  },
 }
 </script>
 
@@ -85,13 +97,13 @@ export default {
   justify-content: flex-start;
   background: rgba(166, 202, 245, 0.29);
   border-radius: 37px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   padding: 0px 18px;
-  height: 86px;
+  height: 48px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 28px;
   color: #333333;
   position: relative;

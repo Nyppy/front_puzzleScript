@@ -101,7 +101,7 @@
 
     .header__img{
       img{
-        max-width: 80%;
+        max-width: 65%;
       }
     }
 

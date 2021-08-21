@@ -20,10 +20,18 @@ class User extends Req {
   }
 }
 
+class File extends Req {
+  load(data) {
+    return this.post('file_manager', { ...data });
+  }
+}
+
 const user = new User();
+const file = new File();
 
 export {
   user,
+  file,
 }
 
 
