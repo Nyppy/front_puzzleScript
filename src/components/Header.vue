@@ -8,8 +8,6 @@
       </router-link>
 
       <div class="header__nav">
-        <p>Бета-тест</p>
-        <p>Принцип работы</p>
         <router-link v-if="auth" to="/private-office" tag="p">Личный кабинет</router-link>
         <p v-if="!auth" @click="toggleModalLogin">Вход</p>
         <p v-else @click="exit">Выход</p>
@@ -117,7 +115,7 @@
 
     .header__nav{
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       flex-grow: 1;
       align-items: center;
       padding: 0px 50px 5px;
@@ -125,6 +123,8 @@
         p{
           cursor: pointer;
           transition: 0.3s;
+          margin-left: 16px;
+          
           &:hover{
            color: #204e7a;
           }

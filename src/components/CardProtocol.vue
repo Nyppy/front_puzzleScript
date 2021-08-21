@@ -17,13 +17,13 @@
       </v-img>
 
       <v-card-subtitle class="pb-0">
-        Number 10
+        Дата загрузки
       </v-card-subtitle>
 
       <v-card-text class="text--primary">
-        <div>Whitehaven Beach</div>
+        
 
-        <div>Whitsunday Island, Whitsunday Islands</div>
+        <div>Название файла</div>
       </v-card-text>
     </v-card>
   </v-col>

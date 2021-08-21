@@ -1,6 +1,6 @@
 <template>
-  <div class="header pt-4" :style="{'position': !fixed?'fixed':''}">
-    <div class="header__content pb-4">
+  <div class="header mt-4" :style="{'position': !fixed?'fixed':''}">
+    <div class="header__content">
       <router-link tag="div" to="/" class="header__logo cursor-pointer ">
         <div class="header__img">
           <img src="../assets/img/header/session.png" alt="">
@@ -68,7 +68,6 @@
     },
     methods: {
       open(){
-        // console.log('work')
         this.$emit('openModal')
       }
     }
@@ -116,6 +115,7 @@
       justify-content: space-evenly;
       width: 200px;
       cursor: pointer;
+      margin-left: 16px;
     }
 
     .header__nav{
