@@ -37,8 +37,14 @@ export default {
     Save,
     Assets
   },
-  data () {
+  data() {
     return {
+      scriptFromAudio: 'ор олт дловодло твлд отдв овтв тлдво старт аааа ааааа аа аааааааа аа ааааааааааааа ааа ааа финиш лдордло лдоыы арывлдд ылоыоард ыволарыв говно ббббббббббббб бб бб бббббббб бб б моча ывалдыж од ыожды лол ожлдывджлыолвыдж длыво',
+      regexpessionsWords: [
+        ['старт', 'финиш'],
+        ['говно', 'моча']
+      ],
+      matchedSubStr: [],
       content: [
         `
           <table border="1" cellpadding="5" width="100%">
@@ -92,7 +98,12 @@ export default {
             <tr>
               <td align="left" style="padding: 5px;" colspan="2">Секретарь: «Иванова Анна»</td>
             </tr>
-
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Ключевые слова: WORDS </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Вхождения: WORDSENTERY </td>
+            </tr>
 
             <style>
               li {
@@ -101,6 +112,7 @@ export default {
             </style>
 
           </table>
+          
         `
       ],
       zoom: 0.8,
@@ -113,7 +125,8 @@ export default {
       undo_count: -1, // contains the number of times user can undo (= current position in content_history)
       content_history: [], // contains the content states for undo/redo operations
       flag_assets: false,
-      name_protocol: 'Test 1'
+      name_protocol: 'Test 1',
+      
     }
   },
   created () {
@@ -181,8 +194,10 @@ export default {
   },
   mounted () {
     this.mounted = true;
-
     this.loadData();
+    this.content[0] = this.content[0] + this.scriptFromAudio
+    this.findEnteres();
+    this.rebuildContent();
   },
   computed: {
     idProtocol() {
@@ -338,6 +353,19 @@ export default {
     can_redo () { return this.content_history.length - this.undo_count - 1 > 0; }
   },
   methods: {
+    rebuildContent(){
+      // this.content = this.content.replace("WORD", `${this.matchedSubStr[0].words[0]} + ${this.matchedSubStr[0].words[1]}`)
+      this.content = this.content.replace("WORD", "GAY")
+    },
+    findEnteres(){
+      for(let i = 0; i < this.regexpessionsWords.length; i++){
+        const regPattern = new RegExp(`(?<=\\${this.regexpessionsWords[i][0]})(.*?)(?=\\${this.regexpessionsWords[i][1]})`, 'gim');
+        this.matchedSubStr.push({words:[this.regexpessionsWords[i][0],this.regexpessionsWords[i][1]],text:this.scriptFromAudio.match(regPattern)});
+        // console.log(regPattern)
+        // console.log(this.scriptFromAudio.match(regPattern))
+      }
+      console.log(this.matchedSubStr)
+    },
     loadData() {
       console.log('LOAD');
     },
