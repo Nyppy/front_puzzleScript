@@ -9,10 +9,11 @@
     >
       <v-img
         class="white--text align-end"
-        height="200px"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        style="border-bottom: 2px solid #000;"
+        height="140px"
+        src="../assets/img/editor/temp.png"
       >
-        <v-card-title>Top 10 Australian beaches</v-card-title>
+        <!-- <v-card-title>Top 10 Australian beaches</v-card-title> -->
       </v-img>
 
       <v-card-subtitle class="pb-0">

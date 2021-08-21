@@ -81,7 +81,7 @@ export default {
 
             <tr>
               <td align="left" style="padding: 5px;" colspan="2">
-                Там на суку сидит ворона с хуём во рту во лбу Корона в эту темную ночь никто не в силах ей помочь а В эту лунную ночь Никто не сможет нам помочь Баба Яга сварила зелье звери в лесу все ахуели в эту темную ночь никто не в силах им помочь а в эту темную ночь Никто не сможет ей помочь
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur mollitia nihil ad repellat animi dignissimos eius maxime, rerum sed dicta minus, quos nemo corrupti, quo qui quibusdam! Quasi, commodi mollitia.
               </td>
             </tr>
 
