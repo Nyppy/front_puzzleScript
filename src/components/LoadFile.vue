@@ -23,7 +23,7 @@
               color="#000"
             >mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title class="ml-0 pl-0">Загрузка файла</v-toolbar-title>
+          <v-toolbar-title class="ml-0 pl-0">Загрузка файлов</v-toolbar-title>
           <v-spacer></v-spacer>
 
         </v-toolbar>
@@ -31,18 +31,25 @@
         <form
           @submit.prevent="submit"
           class="pa-8"
+          ref="form"
         >
           <v-file-input
+            v-if="!loader"
             label="Файл"
             v-model="user_file"
             outlined
             dense
             required
             hide-details
-            placeholder="Email"
           ></v-file-input>
 
-          <!-- <input type="file" name="" @change="onFilePicked" id=""> -->
+          <v-progress-linear
+            v-else
+            color="#2F65A6"
+            indeterminate
+            rounded
+            height="6"
+          ></v-progress-linear>
 
           <v-btn
             class="text-none mt-4"
@@ -61,8 +68,6 @@
 </template>
 
 <script>
-// import { file } from '@/plugins/helper.js';
-
 import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
@@ -70,10 +75,8 @@ Vue.use(VueToast);
 
 import Cookies from 'vue-cookies';
 
-import axios from 'axios';
-
 export default {
-  name: 'Login',
+  name: 'LoadFile',
   props: {
     value: {
       type: Boolean,
@@ -87,6 +90,7 @@ export default {
   data() {
     return {
       user_file: null,
+      loader: false,
     }
   },
   computed: {
@@ -103,53 +107,42 @@ export default {
     }
   },
   methods: {
-    onFilePicked(e) {
-      const files = e.target.files
-      if (files[0] !== undefined) {
-        this.imageName = files[0].name
-        if (this.imageName.lastIndexOf('.') <= 0) {
-          return
-        }
-        const fr = new FileReader()
-        fr.readAsDataURL(files[0])
-        fr.addEventListener('load', () => {
+    submit() {
+      this.loader = true;
 
-          console.log(files[0])
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", "Bearer {{token}}");
 
-          const data = {
-            profile: this.user_id,
-            video: files[0]
-          };
+      var formdata = new FormData();
+      formdata.append("profile", this.user_id);
+      formdata.append("video", this.user_file, this.user_file.name);
 
-          console.log(data)
-          
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+      };
 
-          axios.post('http://89.223.69.148:8000/api/file_manager/', files[0], {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          })
-          // file.load(data).then((res) => {
-          //   console.log(res);
+      fetch("http://89.223.69.148:8000/api/file_manager/", requestOptions)
+        .then(response => {
+          response.text();
 
-          //   window.location.reload();
-          // }).catch((err) => {
-          //   console.log(err);
+          this.loader = false;
 
-          //   Vue.$toast.error('Ой ошибочка!', {
-          //     position: 'top-right'
-          //   });
-          // });
+          Vue.$toast.success('Файл успешно загружен!', {
+            position: 'top-right'
+          });
+
+          this.dialog = false;
         })
-      }
-    },
-    async submit() {
-      let formData = new FormData();
-      formData.append("file", this.user_file);
+        .catch(error => {
+          console.log('error', error);
 
-      console.log(formData);
-
-      
+          Vue.$toast.success('Ой, ошибочка!', {
+            position: 'top-right'
+          });
+        });      
     },
   }
 }

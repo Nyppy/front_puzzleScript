@@ -10,7 +10,7 @@
             <Card
               v-for="i in list"
               :key="i.id"
-              :id="i"
+              :data="i"
             />
           </v-row>
         </v-container>
@@ -27,11 +27,13 @@ import Footer from '@/components/Footer.vue';
 import Card from '@/components/CardProtocol.vue';
 import Sidebar from '@/components/Sidebar.vue';
 
+import axios from '../service/axios';
+
 export default {
   name: 'PrivateOffice',
   data() {
     return {
-      list: [1,2,3,4,5],
+      list: null,
     }
   },
   components: {
@@ -40,6 +42,16 @@ export default {
     Card,
     Sidebar,
   },
+  mounted() {
+    this.loadData();
+  },
+  methods: {
+    loadData() {
+      axios.get('/file/?profile_id=1').then((res) => {
+        this.list = res.data.data;
+      })
+    }
+  }
 }
 </script>
 
