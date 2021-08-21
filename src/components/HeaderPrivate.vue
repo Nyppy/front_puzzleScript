@@ -24,7 +24,7 @@
         <h3 v-else class="ml-4 black--text">{{name_protocol}}</h3>
 
         <div class="d-flex">
-          <v-icon color="#000" size="40px" class="mr-2 cursor-pointer ">mdi-cog-outline</v-icon>
+          <v-icon @click="open" color="#000" size="40px" class="mr-2 cursor-pointer ">mdi-cog-outline</v-icon>
 
           <img
             v-if="!search_elem"
@@ -35,7 +35,7 @@
           />
 
           <router-link v-else tag="div" to="/private-office" class="header__button">
-            <span class="black--text">Протоколы</span>
+            <span class="black--text">Личный кабинет</span>
             <v-icon>mdi-arrow-right</v-icon>
           </router-link>
         </div>
@@ -67,7 +67,9 @@
       }
     },
     methods: {
-
+      open(){
+        this.$emit('openModal')
+      }
     }
   }
 </script>
@@ -110,8 +112,9 @@
       border-radius: 4px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      width: 150px;
+      justify-content: space-evenly;
+      width: 200px;
+      cursor: pointer;
     }
 
     .header__nav{

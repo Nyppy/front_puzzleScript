@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <Header fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
+    <Header @openModal="togleAssets" fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
     
     <div class="main">
       <vue-file-toolbar-menu :content="menu" class="bar" />
