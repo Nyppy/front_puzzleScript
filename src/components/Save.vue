@@ -32,9 +32,10 @@ export default {
       axios.post('http://89.223.69.148:8000/api/file/', {
         file_manager_id: this.id,
       }).then(res => {
+        console.log(res.data);
         const url = res.data.text_doc;
-
-        console.log(url);
+        fetch(url)
+          .then( r => r.text() )
       })
     }
   }
