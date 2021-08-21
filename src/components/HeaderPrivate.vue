@@ -2,7 +2,9 @@
   <div class="header" :style="{'position': !fixed?'fixed':''}">
     <div class="header__content">
       <router-link tag="div" to="/" class="header__logo cursor-pointer ">
-        <img src="../assets/img/header/session.png" alt="">
+        <div class="header__img">
+          <img src="../assets/img/header/session.png" alt="">
+        </div>
       </router-link>
 
       <div class="header__nav pl-0">
@@ -32,10 +34,10 @@
             alt=""
           />
 
-          <router-link to="/private-office" tag="p" style="background: #7ed957; height: 40px; border-radius: 6px;" class="pl-2 pr-2 d-flex align-center cursor-pointer" v-else>
+          <div class="header__button">
             <span class="black--text">Протоколы</span>
             <v-icon>mdi-arrow-right</v-icon>
-          </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -95,6 +97,21 @@
       justify-content: space-between;
       align-items: center;
 
+    }
+
+    .header__img{
+      img{
+        max-width: 80%;
+      }
+    }
+
+    .header__button{
+      background: rgba(47, 101, 166, 0.64);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 150px;
     }
 
     .header__nav{

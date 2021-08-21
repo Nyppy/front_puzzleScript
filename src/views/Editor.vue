@@ -16,6 +16,7 @@
     </div>
 
     <Save/>
+    <Assets v-if="flag_assets" @outside="togleAssets"/>
   </div>
 </template>
 
@@ -26,13 +27,15 @@ import VueDocumentEditor from '../components/DocumentEditor/DocumentEditor.vue';
 import Header from '@/components/HeaderPrivate.vue';
 
 import Save from '@/components/Save.vue';
+import Assets from '@/components/Assets.vue';
 
 export default {
   components: { 
     VueDocumentEditor,
     VueFileToolbarMenu,
     Header,
-    Save
+    Save,
+    Assets
   },
   data () {
     return {
@@ -48,7 +51,7 @@ export default {
       mounted: false, // will be true after this component is mounted
       undo_count: -1, // contains the number of times user can undo (= current position in content_history)
       content_history: [], // contains the content states for undo/redo operations
-
+      flag_assets: false,
       name_protocol: 'Test 1'
     }
   },
@@ -319,6 +322,9 @@ export default {
         this.content.splice(i, 1, item.replace(marker, ''));
         break;
       }
+    },
+    togleAssets(){
+      this.flag_assets = !this.flag_assets;
     }
   },
   watch: {

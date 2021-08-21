@@ -127,7 +127,7 @@
           cursor: pointer;
           transition: 0.3s;
           &:hover{
-           color: #3B7A20;
+           color: #204e7a;
           }
           
         }
