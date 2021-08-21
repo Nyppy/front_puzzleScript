@@ -34,10 +34,10 @@
             alt=""
           />
 
-          <div class="header__button">
+          <router-link v-else tag="div" to="/private-office" class="header__button">
             <span class="black--text">Протоколы</span>
             <v-icon>mdi-arrow-right</v-icon>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>

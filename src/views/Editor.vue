@@ -41,67 +41,66 @@ export default {
     return {
       content: [
         `
-<table border="1" cellpadding="5" width="100%">
-  <tr align="center">
-    <td colspan="2" style="padding: 5px;">НАИМЕНОВАНИЕ ПОДРАЗДЕЛЕНИЯ: 1</td>
-  </tr>
+          <table border="1" cellpadding="5" width="100%">
+            <tr align="center">
+              <td colspan="2" style="padding: 5px;">НАИМЕНОВАНИЕ ПОДРАЗДЕЛЕНИЯ: 1</td>
+            </tr>
 
-  <tr>
-    <td align="center" style="padding: 5px;" colspan="2"><h1>ПРОТОКОЛ</h1></td>
-  </tr>
+            <tr>
+              <td align="center" style="padding: 5px;" colspan="2"><h1>ПРОТОКОЛ</h1></td>
+            </tr>
 
-  <tr>
-    <td align="center" style="padding: 5px;" colspan="2"><h3>НАЗВАНИЕ ПРОТОКОЛА: «TEST»</h3></td>
-  </tr>
+            <tr>
+              <td align="center" style="padding: 5px;" colspan="2"><h3>НАЗВАНИЕ ПРОТОКОЛА: «TEST»</h3></td>
+            </tr>
 
-  <tr>
-   <td align="left" style="padding: 5px;">ДАТА ПРОТОКОЛА: «11.12.21»</td>
-   <td align="left" style="padding: 5px;">НОМЕР ПРОТОКОЛА «1»</td>
-  </tr>
+            <tr>
+            <td align="left" style="padding: 5px;">ДАТА ПРОТОКОЛА: «11.12.21»</td>
+            <td align="left" style="padding: 5px;">НОМЕР ПРОТОКОЛА «1»</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">ГОРОД: «Kursk»</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">ГОРОД: «Kursk»</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">ПРЕДСЕДАТЕЛЬСТВУЮЩИЙ: «Иванов Иван»</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">ПРЕДСЕДАТЕЛЬСТВУЮЩИЙ: «Иванов Иван»</td>
+            </tr>
 
-  <tr>
-    <td align="left" colspan="2">Присутствовали: Иванов Иван, Сидоров Алексей</td>
-  </tr>
+            <tr>
+              <td align="left" colspan="2">Присутствовали: Иванов Иван, Сидоров Алексей</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">ПОВЕСТКА: «Этапы хакатона ЦП 2021»</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">ПОВЕСТКА: «Этапы хакатона ЦП 2021»</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">Текст:</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Текст:</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">
-      Там на суку сидит ворона с хуём во рту во лбу Корона в эту темную ночь никто не в силах ей помочь а В эту лунную ночь Никто не сможет нам помочь Баба Яга сварила зелье звери в лесу все ахуели в эту темную ночь никто не в силах им помочь а в эту темную ночь Никто не сможет ей помочь
-    </td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">
+                Там на суку сидит ворона с хуём во рту во лбу Корона в эту темную ночь никто не в силах ей помочь а В эту лунную ночь Никто не сможет нам помочь Баба Яга сварила зелье звери в лесу все ахуели в эту темную ночь никто не в силах им помочь а в эту темную ночь Никто не сможет ей помочь
+              </td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">Председатель: «Сидоров Илья»</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Председатель: «Сидоров Илья»</td>
+            </tr>
 
-  <tr>
-    <td align="left" style="padding: 5px;" colspan="2">Секретарь: «Иванова Анна»</td>
-  </tr>
+            <tr>
+              <td align="left" style="padding: 5px;" colspan="2">Секретарь: «Иванова Анна»</td>
+            </tr>
 
 
-  <style>
-    li {
-      margin-left: 40px;
-    }
-  </style>
+            <style>
+              li {
+                margin-left: 40px;
+              }
+            </style>
 
-</table>
-
+          </table>
         `
       ],
       zoom: 0.8,
