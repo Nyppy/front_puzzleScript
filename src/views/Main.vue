@@ -6,10 +6,6 @@
     <Team />
     <Connect />
     <Footer />
-    
-    <div class="mt-4 wrapper">
-      
-    </div>
   </div>
 </template>
 

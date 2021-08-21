@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
 .footer {
-    background: rgba(222, 255, 207, 0.47);
+    background: #A6CAF555;
     p{
       margin-bottom: 0px;
     }

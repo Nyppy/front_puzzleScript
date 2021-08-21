@@ -2,7 +2,9 @@
   <div class="header" :style="{'position': !fixed?'fixed':''}">
     <div class="header__content">
       <router-link tag="div" to="/" class="header__logo cursor-pointer ">
-        <img src="../assets/img/header/session.png" alt="">
+        <div class="header__img">
+          <img src="../assets/img/header/session.png" alt="">
+        </div>
       </router-link>
 
       <div class="header__nav">
@@ -104,7 +106,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      
+    }
 
+    .header__img{
+      img{
+      max-width: 80%;
+
+      }
     }
 
     .header__nav{

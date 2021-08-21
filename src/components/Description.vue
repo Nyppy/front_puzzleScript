@@ -56,7 +56,7 @@
 
 <style lang="scss" scoped>
 .description{
-    background: rgba(222, 255, 207, 0.47);
+    background: #A6CAF555;
     padding: 237px 0px 127px 0px;
     p{
         margin-bottom: 0px;

@@ -63,7 +63,7 @@
 
 <style lang="scss" scoped>
 .team{
-    background: rgba(222, 255, 207, 0.47);
+    background: #A6CAF555;
     padding: 57px 0px 0px 0px;
     p{
         margin-bottom: 0px;

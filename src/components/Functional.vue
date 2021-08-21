@@ -129,7 +129,7 @@
     }
 }
 .functional__button {
-    background: #BDF8A4;
+    background: #A6CAF555;
     border-radius: 26px;
     max-width: 229px;
     height: 52px;
