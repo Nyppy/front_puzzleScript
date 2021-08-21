@@ -5,7 +5,7 @@
   >
     <v-card
       max-width="300"
-      :to="`/editor/${id}`"
+      :to="`/editor/${data.id}`"
     >
       <v-img
         class="white--text align-end"
@@ -16,14 +16,12 @@
         <!-- <v-card-title>Top 10 Australian beaches</v-card-title> -->
       </v-img>
 
-      <v-card-subtitle class="pb-0">
-        Number 10
+      <v-card-subtitle class="pb-0 text-left">
+        Протокол {{data.name ? data.name : data.id}}
       </v-card-subtitle>
 
-      <v-card-text class="text--primary">
-        <div>Whitehaven Beach</div>
-
-        <div>Whitsunday Island, Whitsunday Islands</div>
+      <v-card-text class="text--primary text-left">
+        <div>{{data.short_text || 'Нет данных!'}}</div>
       </v-card-text>
     </v-card>
   </v-col>
@@ -32,7 +30,7 @@
 <script>
 export default {
   name: 'Card',
-  props: ['id']
+  props: ['data']
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <Header @openModal="togleAssets" fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
+    <Header @openModal="togleAssets" cog fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
     
     <div class="main">
       <vue-file-toolbar-menu :content="menu" class="bar" />
@@ -29,7 +29,10 @@ import Header from '@/components/HeaderPrivate.vue';
 import Save from '@/components/Save.vue';
 import Assets from '@/components/Assets.vue';
 
+import axios from 'axios';
+
 export default {
+  name: 'Editor',
   components: { 
     VueDocumentEditor,
     VueFileToolbarMenu,
@@ -113,7 +116,9 @@ export default {
       undo_count: -1, // contains the number of times user can undo (= current position in content_history)
       content_history: [], // contains the content states for undo/redo operations
       flag_assets: false,
-      name_protocol: 'Test 1'
+      name_protocol: 'Test 1',
+
+      load_data: null
     }
   },
   created () {
@@ -339,7 +344,9 @@ export default {
   },
   methods: {
     loadData() {
-      console.log('LOAD');
+      axios.get('http://89.223.69.148:8000/api/file_get/?file_id=' + this.idProtocol).then(res => {
+        this.load_data = res.data.data;
+      })
     },
     // Page overlays (headers, footers, page numbers)
     overlay (page, total) {
