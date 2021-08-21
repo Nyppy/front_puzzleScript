@@ -358,8 +358,8 @@ export default {
   },
   methods: {
     rebuildContent(){
-      // this.content = this.content.replace("WORD", `${this.matchedSubStr[0].words[0]} + ${this.matchedSubStr[0].words[1]}`)
-      this.content = this.content.replace("WORD", "GAY")
+      this.content[0] = this.content[0].replace("WORDS", `${this.matchedSubStr[0].words[0]}, ${this.matchedSubStr[0].words[1]}`)
+      this.content[0] = this.content[0].replace("WORDSENTERY", `${this.matchedSubStr[0].text.join()}`)
     },
     findEnteres(){
       for(let i = 0; i < this.regexpessionsWords.length; i++){
