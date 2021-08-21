@@ -68,6 +68,7 @@
     },
     methods: {
       open(){
+        // console.log('work')
         this.$emit('openModal')
       }
     }

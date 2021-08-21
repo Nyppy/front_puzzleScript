@@ -71,6 +71,9 @@
 .assets__list {
 }
 .aseets__item {
+    display: flex;
+    
+
 }
 .assets__number {
 }
