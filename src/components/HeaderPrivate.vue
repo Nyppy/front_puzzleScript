@@ -24,7 +24,7 @@
         <h3 v-else class="ml-4 black--text">{{name_protocol}}</h3>
 
         <div class="d-flex">
-          <v-icon v-if="cog" color="#000" size="40px" class="mr-2 cursor-pointer ">mdi-cog-outline</v-icon>
+          <v-icon v-if="cog" @click="open" color="#000" size="40px" class="mr-2 cursor-pointer ">mdi-cog-outline</v-icon>
 
           <img
             v-if="!search_elem"
@@ -71,6 +71,9 @@
       }
     },
     methods: {
+      open(){
+        this.$emit('openModal')
+      }
     }
   }
 </script>

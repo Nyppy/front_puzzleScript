@@ -1,5 +1,5 @@
 <template>
-  <div class="save">
+  <div class="save" @click="save">
     <v-btn
       color="#2F65A6"
       fab
@@ -12,8 +12,32 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: "Save"
+  name: "Save",
+  props: ['data', 'id'],
+  methods: {
+    save() {
+      axios.post('http://89.223.69.148:8000/api/file_text_save/', {
+        file_id: this.id,
+        file_text: this.data,
+      }).then(res => {
+        console.log(res);
+
+        this.loadFile();
+      })
+    },
+    loadFile() {
+      axios.post('http://89.223.69.148:8000/api/file/', {
+        file_manager_id: this.id,
+      }).then(res => {
+        const url = res.data.text_doc;
+
+        console.log(url);
+      })
+    }
+  }
 }
 </script>
 
