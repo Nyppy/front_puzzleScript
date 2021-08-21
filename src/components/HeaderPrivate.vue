@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :style="{'position': !fixed?'fixed':''}">
+  <div class="header mt-4" :style="{'position': !fixed?'fixed':''}">
     <div class="header__content">
       <router-link tag="div" to="/" class="header__logo cursor-pointer ">
         <div class="header__img">
