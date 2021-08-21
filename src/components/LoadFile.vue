@@ -34,6 +34,7 @@
         >
           <v-file-input
             label="Файл"
+            v-model="user_file"
             outlined
             dense
             required
@@ -65,7 +66,7 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast);
 
-// import Cookies from 'vue-cookies';
+import Cookies from 'vue-cookies';
 
 export default {
   name: 'Login',
@@ -81,7 +82,7 @@ export default {
   },
   data() {
     return {
-      email: null,
+      user_file: null,
     }
   },
   computed: {
@@ -93,12 +94,15 @@ export default {
         this.$emit('input', value);
       }
     },
+    user_id() {
+      return Cookies.get('User_id');
+    }
   },
   methods: {  
     async submit() {
       const data = {
-        email: this.email,
-        password: this.password
+        profile: this.user_id,
+        video: this.user_file
       };
       
       file.load(data).then((res) => {

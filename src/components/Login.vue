@@ -126,6 +126,7 @@ export default {
         
         Cookies.set('Token', res.data.authorization);     
         Cookies.set('Auth', true);
+        Cookies.set('User_id', res.data.id);
 
         window.location.reload();
       }).catch((err) => {

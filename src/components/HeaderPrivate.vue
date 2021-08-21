@@ -1,6 +1,6 @@
 <template>
-  <div class="header mt-4" :style="{'position': !fixed?'fixed':''}">
-    <div class="header__content">
+  <div class="header pt-4" :style="{'position': !fixed?'fixed':''}">
+    <div class="header__content pb-4">
       <router-link tag="div" to="/" class="header__logo cursor-pointer ">
         <div class="header__img">
           <img src="../assets/img/header/session.png" alt="">
