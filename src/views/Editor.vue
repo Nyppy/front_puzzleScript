@@ -129,12 +129,8 @@ export default {
       content_history: [], // contains the content states for undo/redo operations
       flag_assets: false,
       name_protocol: 'Test 1',
-<<<<<<< HEAD
-      
-=======
 
       load_data: null
->>>>>>> 700ab85238b29adf667f5cb9b6743482d410bf22
     }
   },
   created () {
