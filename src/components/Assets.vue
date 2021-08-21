@@ -18,7 +18,7 @@
                 </div>
                 <div class="aseets__item">
                     <div class="assets__number">
-                        <h4>Набор №1</h4>
+                        <h4>Набор №2</h4>
                     </div>
                     <div class="assets__description">
                         <div class="assets__text">
@@ -60,6 +60,9 @@
     justify-content: center;
     background-color: #A6CAF588;
     z-index: 1000;
+    p{
+        margin-bottom: 0px;
+    }
     
 }
 .assets__content {
@@ -69,16 +72,69 @@
     border-radius: 100px;
 }
 .assets__list {
+    width: 100%;
+
 }
 .aseets__item {
+    position: relative;
     display: flex;
-    
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    height: 115px;
+    &:last-child{
+        margin-bottom: 0px;
+    }
 
 }
 .assets__number {
+    width: 30%;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
 }
 .assets__description {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: space-between;
+    height: 100%;
+    background: #A6CAF5;
+    border-radius: 16px;
+    position: absolute;
+    right: 0px;
+    padding: 18px 30px 27px 24px;
 }
 .assets__text {
+    height: 100%;
+    color: #000000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h4{
+        
+        font-size: 24px;
+        line-height: 28px;
+        
+    }
+    p{
+        font-size: 18px;
+        line-height: 21px;
+    }
 }
 </style>

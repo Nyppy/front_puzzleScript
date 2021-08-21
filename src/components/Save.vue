@@ -1,7 +1,7 @@
 <template>
   <div class="save">
     <v-btn
-      color="#7ed957"
+      color="#2F65A6"
       fab
       x-large
       dark
