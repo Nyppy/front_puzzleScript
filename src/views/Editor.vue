@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <Header @openModal="togleAssets" cog fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
+    <Header v-if="load_data" @openModal="togleAssets" cog fixed search_elem :name_protocol="load_data.name"/>
     
     <div class="main">
       <vue-file-toolbar-menu :content="menu" class="bar" />
@@ -15,7 +15,12 @@
       />
     </div>
 
-    <Save/>
+    <Save
+      v-if="load_data"
+      :id="load_data.id"
+      :data="content[0]"
+    />
+
     <Assets v-if="flag_assets" @outside="togleAssets"/>
   </div>
 </template>
