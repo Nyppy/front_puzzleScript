@@ -34,8 +34,11 @@ export default {
       }).then(res => {
         console.log(res.data);
         const url = res.data.text_doc;
-        fetch(url)
-          .then( r => r.text() )
+
+        var link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download','download');
+        onload=link.click();
       })
     }
   }
