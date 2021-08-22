@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <Header v-if="load_data" @openModal="togleAssets" cog fixed search_elem :name_protocol="load_data.name"/>
+    <Header @openModal="togleAssets" cog fixed search_elem :name_protocol="name_protocol + '' + idProtocol"/>
     
     <div class="main">
       <vue-file-toolbar-menu :content="menu" class="bar" />
@@ -15,12 +15,7 @@
       />
     </div>
 
-    <Save
-      v-if="load_data"
-      :id="load_data.id"
-      :data="content[0]"
-    />
-
+    <Save/>
     <Assets v-if="flag_assets" @outside="togleAssets"/>
   </div>
 </template>
@@ -211,11 +206,12 @@ export default {
   mounted () {
     this.mounted = true;
     this.loadData();
-    // this.content[0] = this.content[0] + this.scriptFromAudio
-    this.findEnteres();
-    this.rebuildContent();
+    // this.findEnteres();
+    // this.rebuildContent();
+    
   },
   computed: {
+
     idProtocol() {
       return this.$route.params.id;
     },
@@ -387,7 +383,10 @@ export default {
     },
     loadData() {
       axios.get('http://89.223.69.148:8000/api/file_get/?file_id=' + this.idProtocol).then(res => {
+        console.log(res)
         this.load_data = res.data.data;
+        this.scriptFromAudio = res.data.data.fulltext;
+        
       })
     },
     // Page overlays (headers, footers, page numbers)
@@ -438,6 +437,10 @@ export default {
     }
   },
   watch: {
+    load_data() {
+      this.findEnteres()
+      this.rebuildContent()
+    },
     content: {
       immediate: true,
       // Fill undo / redo history stack on user input
