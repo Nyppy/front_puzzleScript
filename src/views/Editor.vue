@@ -211,11 +211,9 @@ export default {
     
   },
   computed: {
-
     idProtocol() {
       return this.$route.params.id;
     },
-    // This is the menu content
     menu () {
       return [
         // Main commands
@@ -385,7 +383,7 @@ export default {
       axios.get('http://89.223.69.148:8000/api/file_get/?file_id=' + this.idProtocol).then(res => {
         console.log(res)
         this.load_data = res.data.data;
-        this.scriptFromAudio = res.data.data.fulltext;
+        this.scriptFromAudio = res.data.data.full_text;
         
       })
     },
